@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srub Výtoňka — Apartmány Lipno · Přední Výtoň</title>
+  <meta name="description" content="Srub Výtoňka — tři srubové mezonetové apartmány 600 m od Lipna. Krb, sauna, venkovní vyhřívaný sud. Ideální pro rodiny i skupiny." />
+  <meta property="og:title" content="Srub Výtoňka — Vaše srubové útočiště u Lipna" />
+  <meta property="og:description" content="Tři mezonetové apartmány v srubovém stylu, 600 metrů od Lipna. Krb, sauna a zahrada — pro rodiny, party a chvíle klidu." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-bark:   #3B2F25;
+      --color-pine:   #C4813A;
+      --color-water:  #4A7FA3;
+      --color-cream:  #F2EDE4;
+      --color-ash:    #8C8275;
+      --color-night:  #1B1610;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --space-4:  16px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      --max-width: 1200px;
+      --reading-width: 680px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--color-cream);
+      color: var(--color-bark);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── FIXED SITE HEADER (bar + nav together) ─── */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+    }
+
+    /* ─── ANNOUNCEMENT BAR ─── */
+    #announcement-bar {
+      background: var(--color-pine);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-align: center;
+      padding: 9px 48px;
+      position: relative;
+    }
+    #announcement-bar a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    #announcement-bar a:hover { opacity: 0.85; }
+    #dismiss-bar {
+      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: #fff; font-size: 1.1rem;
+      cursor: pointer; opacity: 0.75; line-height: 1;
+      transition: opacity 0.2s ease;
+    }
+    #dismiss-bar:hover { opacity: 1; }
+
+    /* ─── NAVIGATION ─── */
+    #navbar {
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+      padding: 0 var(--space-6);
+    }
+    #navbar.scrolled {
+      background: var(--color-cream);
+      box-shadow: 0 1px 0 rgba(59,47,37,0.1), 0 4px 24px rgba(59,47,37,0.06);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-text .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      transition: color 0.3s;
+      font-optical-sizing: auto;
+    }
+    #navbar.scrolled .nav-logo-text .brand-name { color: var(--color-bark); }
+    .nav-logo-text .brand-sub {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.3s;
+    }
+    #navbar.scrolled .nav-logo-text .brand-sub { color: var(--color-ash); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 6px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    #navbar.scrolled .nav-links a { color: var(--color-bark); }
+    #navbar.scrolled .nav-links a:hover { color: var(--color-pine); background: rgba(196,129,58,0.08); }
+
+    .nav-cta {
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      background: var(--color-pine);
+      color: #fff;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 12px rgba(196,129,58,0.3);
+    }
+    .nav-cta:hover {
+      background: #b3722e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(196,129,58,0.4);
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none; border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column; gap: 5px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: #fff;
+      transition: background 0.3s, transform 0.3s, opacity 0.3s;
+    }
+    #navbar.scrolled .nav-hamburger span { background: var(--color-bark); }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile overlay */
+    #mobile-menu {
+      display: none;
+      position: fixed; inset: 0;
+      background: var(--color-night);
+      z-index: 95;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 2rem;
+      color: var(--color-cream);
+      text-decoration: none;
+      padding: 8px 24px;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+      font-optical-sizing: auto;
+    }
+    #mobile-menu a:hover { color: var(--color-pine); }
+    #mobile-menu .mobile-cta {
+      margin-top: 24px;
+      background: var(--color-pine);
+      color: #fff !important;
+      font-family: var(--font-body) !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.07em !important;
+      text-transform: uppercase;
+      padding: 14px 32px !important;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ─── HERO SLIDESHOW ─── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0;
+      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.05);
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-slide.prev {
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s ease;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 44%, rgba(10,7,4,0.52) 0%, transparent 72%),
+        linear-gradient(
+          to bottom,
+          rgba(27,22,16,0.18) 0%,
+          rgba(27,22,16,0.32) 55%,
+          rgba(27,22,16,0.58) 100%
+        );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 var(--space-6);
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.8);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.7s ease forwards 0.3s;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      font-optical-sizing: auto;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards 0.5s;
+    }
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: rgba(242,237,228,0.82);
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.7s ease forwards 0.7s;
+    }
+    .hero-buttons {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.9s;
+    }
+    .btn-primary {
+      background: var(--color-pine);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 16px rgba(196,129,58,0.35);
+    }
+    .btn-primary:hover {
+      background: #b3722e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(196,129,58,0.45);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+    }
+
+    /* Slideshow dots */
+    .hero-dots {
+      position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 3;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 1.1s;
+    }
+    .hero-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none; cursor: pointer; padding: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .hero-dot.active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(0.6) translateY(-6px); }
+      50%       { opacity: 1;   transform: scaleY(1)   translateY(0); }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    .section {
+      padding: var(--space-20) var(--space-6);
+    }
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-pine);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1.875rem, 3vw, 2.5rem);
+      color: var(--color-bark);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      font-optical-sizing: auto;
+    }
+    .section-divider {
+      width: 40px; height: 2px;
+      background: var(--color-pine);
+      margin: 20px 0;
+    }
+
+    /* ─── INTRO STRIP ─── */
+    #intro { background: #fff; border-top: 1px solid rgba(59,47,37,0.07); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .feature-tile {
+      padding: 36px 28px;
+      border-right: 1px solid rgba(59,47,37,0.08);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .feature-tile:last-child, .feature-tile:nth-child(3) { border-right: none; }
+    .feature-tile:nth-child(4), .feature-tile:nth-child(5), .feature-tile:nth-child(6) {
+      border-top: 1px solid rgba(59,47,37,0.08);
+    }
+    .feature-icon {
+      width: 40px; height: 40px;
+      color: var(--color-pine);
+    }
+    .feature-label {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-bark);
+      letter-spacing: 0.01em;
+    }
+    .feature-desc {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: var(--color-ash);
+      line-height: 1.55;
+    }
+    .pull-quote {
+      max-width: var(--reading-width);
+      margin: 56px auto 0;
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      color: var(--color-bark);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      font-optical-sizing: auto;
+    }
+    .pull-quote cite {
+      display: block;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ash);
+      margin-top: 16px;
+    }
+
+    /* ─── APARTMENTS ─── */
+    #apartments { background: var(--color-cream); }
+    .apartments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .apt-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(59,47,37,0.09);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex; flex-direction: column;
+    }
+    .apt-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59,47,37,0.18);
+      box-shadow: 0 8px 32px rgba(59,47,37,0.1), 0 2px 8px rgba(59,47,37,0.06);
+    }
+    .apt-card-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .apt-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .apt-card:hover .apt-card-img img { transform: scale(1.04); }
+    .apt-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,22,16,0.5) 0%, transparent 55%);
+    }
+    .apt-badge {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: rgba(27,22,16,0.72);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 3px;
+      backdrop-filter: blur(4px);
+    }
+    .apt-card-body {
+      padding: 22px 24px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .apt-name {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--color-bark);
+      margin-bottom: 6px;
+      font-optical-sizing: auto;
+    }
+    .apt-specs {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 16px;
+    }
+    .apt-spec {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-ash);
+      background: rgba(140,130,117,0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .apt-features {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 20px; flex: 1;
+    }
+    .apt-features li {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(59,47,37,0.75);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .apt-features li::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--color-pine);
+      flex-shrink: 0;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-pine);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 11px 20px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-pine);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-outline:hover {
+      background: var(--color-pine);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .apartments-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .apartments-cta a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-pine);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      letter-spacing: 0.02em;
+      transition: gap 0.2s ease;
+    }
+    .apartments-cta a:hover { gap: 10px; }
+
+    /* ─── AMENITIES ─── */
+    #amenities { background: #fff; }
+    .amenities-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .amenities-photo {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .amenities-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .amenities-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,129,58,0.12) 0%, transparent 60%);
+      mix-blend-mode: multiply;
+    }
+    .amenities-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .check-item {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-family: var(--font-body);
+      font-size: 0.8375rem;
+      color: var(--color-bark);
+    }
+    .check-item svg {
+      color: var(--color-pine);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ─── LOCATION ─── */
+    #location { background: var(--color-cream); }
+    .location-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .map-container {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(59,47,37,0.1);
+      aspect-ratio: 4/3;
+      background: #e8e0d6;
+      position: relative;
+    }
+    .map-container iframe {
+      width: 100%; height: 100%; border: none;
+    }
+    .distances-list {
+      display: flex; flex-direction: column; gap: 0;
+      margin-top: 8px;
+    }
+    .distance-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(59,47,37,0.08);
+    }
+    .distance-item:first-child { border-top: 1px solid rgba(59,47,37,0.08); }
+    .distance-icon {
+      width: 38px; height: 38px;
+      background: rgba(196,129,58,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .distance-info { flex: 1; }
+    .distance-name {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-bark);
+    }
+    .distance-val {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-pine);
+      font-optical-sizing: auto;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--color-night); overflow: hidden; }
+    #testimonials .section-heading { color: var(--color-cream); }
+    #testimonials .section-label { color: var(--color-pine); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .review-stars { display: flex; gap: 3px; }
+    .star { color: var(--color-pine); font-size: 0.85rem; }
+    .review-text {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(242,237,228,0.88);
+      line-height: 1.6;
+      flex: 1;
+      font-optical-sizing: auto;
+    }
+    .review-author {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-ash);
+      letter-spacing: 0.04em;
+    }
+    .booking-badge {
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 48px;
+      padding: 20px 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      width: fit-content;
+    }
+    .booking-badge-score {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-pine);
+      line-height: 1;
+      font-optical-sizing: auto;
+    }
+    .booking-badge-text {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: rgba(242,237,228,0.65);
+    }
+    .booking-badge-text strong { color: var(--color-cream); font-weight: 600; }
+
+    /* ─── CONTACT FORM ─── */
+    #contact {
+      background: var(--color-night);
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-24) var(--space-6);
+    }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('Brand Assets/Hero1.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+    }
+    .contact-inner {
+      position: relative; z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #contact .section-label { color: var(--color-pine); }
+    .contact-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-cream);
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      font-optical-sizing: auto;
+    }
+    .contact-sub {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: rgba(242,237,228,0.5);
+      margin-bottom: 48px;
+    }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-field {
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .form-field label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.55);
+    }
+    .form-field input,
+    .form-field textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--color-cream);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(242,237,228,0.3);
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--color-pine);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-field input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.6) sepia(0.5) saturate(2) hue-rotate(5deg);
+      cursor: pointer;
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 4px;
+    }
+    .form-notice {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(242,237,228,0.35);
+      line-height: 1.5;
+    }
+    .form-submit-btn {
+      background: var(--color-pine);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 16px rgba(196,129,58,0.3);
+    }
+    .form-submit-btn:hover {
+      background: #b3722e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(196,129,58,0.45);
+    }
+    .form-submit-btn:active { transform: translateY(0); }
+    .contact-details {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-detail-item {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .contact-detail-item svg { color: var(--color-pine); }
+    .contact-detail-item a,
+    .contact-detail-item span {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: rgba(242,237,228,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-detail-item a:hover { color: var(--color-cream); }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      background: var(--color-bark);
+      padding: var(--space-16) var(--space-6) var(--space-8);
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.3fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(242,237,228,0.1);
+    }
+    .footer-logo-wrap .brand-name { color: var(--color-cream) !important; font-size: 1.25rem !important; }
+    .footer-logo-wrap .brand-sub { color: rgba(242,237,228,0.45) !important; }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.9375rem;
+      color: rgba(242,237,228,0.55);
+      margin-top: 14px;
+      line-height: 1.5;
+      font-optical-sizing: auto;
+    }
+    .footer-socials {
+      display: flex; gap: 10px;
+      margin-top: 20px;
+    }
+    .footer-social-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(242,237,228,0.08);
+      border: 1px solid rgba(242,237,228,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(242,237,228,0.6);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-social-btn:hover {
+      background: rgba(196,129,58,0.2);
+      color: var(--color-pine);
+      border-color: rgba(196,129,58,0.3);
+    }
+    .footer-col-title {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.4);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: rgba(242,237,228,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--color-cream); }
+    .footer-contact-list { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .footer-contact-item svg { color: var(--color-pine); flex-shrink: 0; margin-top: 2px; }
+    .footer-contact-item a, .footer-contact-item span {
+      font-family: var(--font-body);
+      font-size: 0.8375rem;
+      color: rgba(242,237,228,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-contact-item a:hover { color: var(--color-cream); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 24px;
+    }
+    .footer-bottom p {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(242,237,228,0.3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: rgba(242,237,228,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: rgba(242,237,228,0.65); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-tile:nth-child(2) { border-right: none; }
+      .feature-tile:nth-child(3) { border-right: 1px solid rgba(59,47,37,0.08); }
+      .feature-tile:nth-child(3), .feature-tile:nth-child(4) { border-top: 1px solid rgba(59,47,37,0.08); }
+      .feature-tile:nth-child(4) { border-right: none; }
+      .feature-tile:nth-child(5), .feature-tile:nth-child(6) { border-top: 1px solid rgba(59,47,37,0.08); }
+      .feature-tile:nth-child(6) { border-right: none; }
+      .apartments-grid { grid-template-columns: 1fr; gap: 20px; }
+      .amenities-layout { grid-template-columns: 1fr; gap: 32px; }
+      .location-layout { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-tile { border-right: none !important; }
+      .feature-tile:not(:first-child) { border-top: 1px solid rgba(59,47,37,0.08); }
+      .hero-title { font-size: 2.6rem; }
+      .section { padding: var(--space-12) var(--space-4); }
+      .amenities-checklist { grid-template-columns: 1fr; }
+      .contact-details { flex-direction: column; gap: 16px; }
+      .form-submit { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ FIXED SITE HEADER ═══ -->
+  <div id="site-header">
+    <!-- Announcement bar -->
+    <div id="announcement-bar">
+      Last minute · 20 % sleva na volné termíny v červenci a srpnu 2026.
+      <a href="#contact">Ověřit dostupné termíny →</a>
+      <button id="dismiss-bar" aria-label="Zavřít oznámení">×</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" role="navigation" aria-label="Hlavní navigace">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Srub Výtoňka – domovská stránka">
+          <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M18 4L4 16h4v14h8v-8h4v8h8V16h4L18 4z" stroke="#C4813A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <path d="M11 10L6 14M25 10l5 4" stroke="#C4813A" stroke-width="1" stroke-opacity="0.55"/>
+          </svg>
+          <div class="nav-logo-text">
+            <span class="brand-name">Srub Výtoňka</span>
+            <span class="brand-sub">Lipno · Šumava</span>
+          </div>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#apartments">Ubytování</a></li>
+          <li><a href="#amenities">Vybavení</a></li>
+          <li><a href="#location">Poloha</a></li>
+          <li><a href="#testimonials">Recenze</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta">Rezervovat</a>
+
+        <button class="nav-hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigační menu">
+    <a href="#apartments" class="mobile-nav-link">Ubytování</a>
+    <a href="#amenities" class="mobile-nav-link">Vybavení</a>
+    <a href="#location" class="mobile-nav-link">Poloha</a>
+    <a href="#testimonials" class="mobile-nav-link">Recenze</a>
+    <a href="#contact" class="mobile-nav-link">Kontakt</a>
+    <a href="#contact" class="mobile-cta">Rezervovat</a>
+  </div>
+
+  <!-- ═══ HERO SLIDESHOW ═══ -->
+  <section id="hero" aria-label="Hero sekce">
+    <div class="hero-slide active" style="background-image: url('Brand Assets/Cottage 1.jpg'); background-position: center 35%;" role="img" aria-label="Srub Výtoňka — čelní pohled na srub"></div>
+    <div class="hero-slide" style="background-image: url('Brand Assets/Cottage 2.jpg'); background-position: center 40%;" role="img" aria-label="Srub Výtoňka — pohled ze zahrady s ohništěm"></div>
+    <div class="hero-slide" style="background-image: url('Brand Assets/Hero1.jpg'); background-position: center 30%;" role="img" aria-label="Srub Výtoňka — exteriér za letního dne"></div>
+    <div class="hero-slide" style="background-image: url('Brand Assets/Hero 2.jpg'); background-position: center 40%;" role="img" aria-label="Srub Výtoňka — letecký pohled s ohništěm"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Přední Výtoň · Lipno · Šumava</p>
+      <h1 class="hero-title">Srub Výtoňka</h1>
+      <p class="hero-subtitle">Tři srubové apartmány u Lipna. Dřevo, oheň, ticho.</p>
+      <div class="hero-buttons">
+        <a href="#apartments" class="btn-primary">Prohlédnout apartmány</a>
+        <a href="#contact" class="btn-ghost">Zjistit dostupnost</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="hero-dots" aria-hidden="true">
+      <button class="hero-dot active" data-index="0"></button>
+      <button class="hero-dot" data-index="1"></button>
+      <button class="hero-dot" data-index="2"></button>
+      <button class="hero-dot" data-index="3"></button>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO STRIP ═══ -->
+  <section id="intro" aria-label="Přehled vlastností">
+    <div class="section-inner" style="max-width:var(--max-width); margin:0 auto; padding:0;">
+      <div class="features-grid">
+        <div class="feature-tile reveal">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M20 4C20 4 8 14 8 24a12 12 0 0024 0C32 14 20 4 20 4z"/>
+            <path d="M20 16v12M14 22h12" stroke-width="1.2"/>
+          </svg>
+          <span class="feature-label">600 m od jezera</span>
+          <p class="feature-desc">Pláž Lipno pěšky za 8 minut — přímo z prahu.</p>
+        </div>
+        <div class="feature-tile reveal reveal-delay-1">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="6" y="18" width="28" height="18" rx="1"/>
+            <path d="M2 18l18-13 18 13"/>
+            <path d="M16 36V26h8v10" stroke-width="1.5"/>
+          </svg>
+          <span class="feature-label">3 apartmány · 20 osob</span>
+          <p class="feature-desc">Pronajměte jeden nebo všechny tři pro velké skupiny.</p>
+        </div>
+        <div class="feature-tile reveal reveal-delay-2">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="20" cy="20" r="12"/>
+            <path d="M20 8v4M20 28v4M8 20h4M28 20h4"/>
+            <circle cx="20" cy="20" r="4" fill="currentColor" stroke="none" opacity="0.3"/>
+          </svg>
+          <span class="feature-label">Sauna &amp; Wellness</span>
+          <p class="feature-desc">Finská sauna, infrasauna a venkovní vyhřívaný sud.</p>
+        </div>
+        <div class="feature-tile reveal">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 32l6-14 6 10 6-6 6 10"/>
+            <path d="M4 36h32" stroke-width="1.2"/>
+            <circle cx="10" cy="12" r="4"/>
+          </svg>
+          <span class="feature-label">Lyžování v okolí</span>
+          <p class="feature-desc">Skiareál Lipno 12 km, Hochficht (AT) 25 min jízdy.</p>
+        </div>
+        <div class="feature-tile reveal reveal-delay-1">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="26" r="5"/>
+            <circle cx="30" cy="26" r="5"/>
+            <path d="M17 26h8M12 21V14l10-6 10 8v9"/>
+          </svg>
+          <span class="feature-label">Cyklostezky</span>
+          <p class="feature-desc">Jezerní trasa i Schwarzenberský kanál přímo od dveří.</p>
+        </div>
+        <div class="feature-tile reveal reveal-delay-2">
+          <svg class="feature-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M10 34V22M20 34V16M30 34V22"/>
+            <path d="M6 22c0 0 4-4 14-6s14 6 14 6" stroke-width="1.2"/>
+            <path d="M14 10c2-3 4-4 6-4s4 1 6 4"/>
+          </svg>
+          <span class="feature-label">Krb &amp; soukromá zahrada</span>
+          <p class="feature-desc">Krb na dřevo, ohniště a terasa s grilem — váš prostor.</p>
+        </div>
+      </div>
+      <div class="pull-quote section" style="padding-top:var(--space-12); padding-bottom:var(--space-16);">
+        <blockquote class="reveal">"Vůně dřeva, klidný výhled na louky a jezero — váš domov na týden."</blockquote>
+        <cite class="reveal reveal-delay-1">Přední Výtoň · Lipno · Jihočeský kraj</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ APARTMENTS ═══ -->
+  <section id="apartments" class="section" aria-labelledby="apts-heading">
+    <div class="section-inner">
+      <span class="section-label reveal">Ubytování</span>
+      <h2 class="section-heading reveal" id="apts-heading">Tři apartmány,<br>jeden srub</h2>
+      <div class="section-divider reveal"></div>
+      <p class="reveal" style="max-width:560px; font-size:1.0625rem; color:var(--color-ash); line-height:1.7; margin-bottom:0;">Každý apartmán je plně vybaven a nabízí vlastní vstup, terasu a soukromí. Společné jsou wellness prostory, zahrada a ohniště.</p>
+
+      <div class="apartments-grid">
+        <div class="apt-card reveal">
+          <div class="apt-card-img">
+            <img src="Brand Assets/Bedrooms1.jpg" alt="Exteriér Srubu Výtoňka, apartmán A" loading="lazy" />
+            <div class="apt-card-img-overlay"></div>
+            <span class="apt-badge">Apartmán A</span>
+          </div>
+          <div class="apt-card-body">
+            <h3 class="apt-name">Apartmán A</h3>
+            <div class="apt-specs">
+              <span class="apt-spec">👤 8 osob</span>
+              <span class="apt-spec">📐 125 m²</span>
+              <span class="apt-spec">🛏 3 ložnice</span>
+              <span class="apt-spec">🚿 2 koupelny</span>
+            </div>
+            <ul class="apt-features">
+              <li>Krb na dřevo v obývacím pokoji</li>
+              <li>Plně vybavená kuchyně</li>
+              <li>Soukromá terasa s výhledem</li>
+              <li>Mezonetový půdorys</li>
+            </ul>
+            <a href="#contact" class="btn-outline">Zjistit více</a>
+          </div>
+        </div>
+
+        <div class="apt-card reveal reveal-delay-1">
+          <div class="apt-card-img">
+            <img src="Brand Assets/Living Room 1.jpg" alt="Obývací pokoj apartmánu B s dřevěnými trámy" loading="lazy" />
+            <div class="apt-card-img-overlay"></div>
+            <span class="apt-badge">Apartmán B</span>
+          </div>
+          <div class="apt-card-body">
+            <h3 class="apt-name">Apartmán B</h3>
+            <div class="apt-specs">
+              <span class="apt-spec">👤 4 osoby</span>
+              <span class="apt-spec">📐 78 m²</span>
+              <span class="apt-spec">🛏 1 ložnice</span>
+              <span class="apt-spec">🚿 1 koupelna</span>
+            </div>
+            <ul class="apt-features">
+              <li>Otevřená kuchyně s jídelnou</li>
+              <li>Klidný výhled do zahrady</li>
+              <li>Pohodlný pro pár i malou rodinu</li>
+              <li>Vlastní vstup z terasy</li>
+            </ul>
+            <a href="#contact" class="btn-outline">Zjistit více</a>
+          </div>
+        </div>
+
+        <div class="apt-card reveal reveal-delay-2">
+          <div class="apt-card-img">
+            <img src="Brand Assets/Bedroom2.jpg" alt="Podkrovní ložnice apartmánu C s dřevěnými stěnami" loading="lazy" />
+            <div class="apt-card-img-overlay"></div>
+            <span class="apt-badge">Apartmán C</span>
+          </div>
+          <div class="apt-card-body">
+            <h3 class="apt-name">Apartmán C</h3>
+            <div class="apt-specs">
+              <span class="apt-spec">👤 8 osob</span>
+              <span class="apt-spec">📐 125 m²</span>
+              <span class="apt-spec">🛏 3 ložnice</span>
+              <span class="apt-spec">🚿 2 koupelny</span>
+            </div>
+            <ul class="apt-features">
+              <li>Krb na dřevo v obývacím pokoji</li>
+              <li>Podkrovní ložnice s trámovým stropem</li>
+              <li>Terasa s grilem a zahradním nábytkem</li>
+              <li>Mezonetový půdorys</li>
+            </ul>
+            <a href="#contact" class="btn-outline">Zjistit více</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="apartments-cta reveal">
+        <a href="#contact">
+          Zkontrolovat dostupnost a ceny
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AMENITIES ═══ -->
+  <section id="amenities" class="section" aria-labelledby="amenities-heading">
+    <div class="section-inner">
+      <span class="section-label reveal">Co u nás najdete</span>
+      <h2 class="section-heading reveal" id="amenities-heading">Vše, co potřebujete</h2>
+      <div class="section-divider reveal"></div>
+      <div class="amenities-layout" style="margin-top:48px;">
+        <div class="amenities-photo reveal">
+          <img src="Brand Assets/Sauna 1.jpg" alt="Relaxační místnost s lehátky a dřevěnými detaily" loading="lazy" />
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p style="font-size:1.0625rem; color:var(--color-ash); line-height:1.7; margin-bottom:28px;">Všechna vybavení jsou zahrnuty v ceně pronájmu — bez skrytých poplatků.</p>
+          <div class="amenities-checklist">
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Finská sauna</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Venkovní vyhřívaný sud</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Krb na dřevo</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Bazén</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Ohniště</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Plynový gril na terase</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Kulečník &amp; ping-pong</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Dětský koutek</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Trampolína &amp; houpačky</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Parkování zdarma</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Wi-Fi zdarma</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Úklid v ceně</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Půjčovna sportovního vybavení</div>
+            <div class="check-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="2,8 6,12 14,4"/></svg>Lyžárna &amp; kolárna</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LOCATION ═══ -->
+  <section id="location" class="section" aria-labelledby="location-heading">
+    <div class="section-inner">
+      <span class="section-label reveal">Kde nás najdete</span>
+      <h2 class="section-heading reveal" id="location-heading">600 metrů od Lipna</h2>
+      <div class="section-divider reveal"></div>
+      <div class="location-layout" style="margin-top:48px;">
+        <div class="map-container reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.5!2d14.0316!3d48.6678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4774f3a3c6f6a3b5%3A0x1234567890abcdef!2sPředn%C3%AD%20V%C3%BDto%C5%88!5e1!3m2!1scs!2scz!4v1"
+            title="Poloha Srubu Výtoňka na mapě"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p style="font-size:1.0625rem; color:var(--color-ash); line-height:1.7; margin-bottom:28px;">Přední Výtoň 194, v srdci Šumavy — vše co potřebujete do 30 minut.</p>
+          <div class="distances-list">
+            <div class="distance-item">
+              <div class="distance-icon" aria-hidden="true">🏖️</div>
+              <div class="distance-info"><p class="distance-name">Pláž Lipno</p></div>
+              <span class="distance-val">600 m</span>
+            </div>
+            <div class="distance-item">
+              <div class="distance-icon" aria-hidden="true">🌲</div>
+              <div class="distance-info"><p class="distance-name">Stezka korunami stromů</p></div>
+              <span class="distance-val">8 km</span>
+            </div>
+            <div class="distance-item">
+              <div class="distance-icon" aria-hidden="true">⛷️</div>
+              <div class="distance-info"><p class="distance-name">Skiareál Lipno</p></div>
+              <span class="distance-val">12 km</span>
+            </div>
+            <div class="distance-item">
+              <div class="distance-icon" aria-hidden="true">🏰</div>
+              <div class="distance-info"><p class="distance-name">Český Krumlov</p></div>
+              <span class="distance-val">28 km</span>
+            </div>
+            <div class="distance-item">
+              <div class="distance-icon" aria-hidden="true">🇦🇹</div>
+              <div class="distance-info"><p class="distance-name">Hochficht (Rakousko)</p></div>
+              <span class="distance-val">25 min</span>
+            </div>
+          </div>
+          <div style="margin-top:24px; padding:16px 20px; background:rgba(196,129,58,0.08); border-left:3px solid var(--color-pine); border-radius:2px;">
+            <p style="font-family:var(--font-body); font-size:0.8125rem; font-weight:600; color:var(--color-bark); margin-bottom:4px;">Přední Výtoň 194</p>
+            <p style="font-family:var(--font-body); font-size:0.8125rem; color:var(--color-ash);">382 73 Přední Výtoň · GPS: 48.668°N, 14.032°E</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonials" class="section" aria-labelledby="reviews-heading">
+    <div class="section-inner">
+      <span class="section-label reveal">Recenze hostů</span>
+      <h2 class="section-heading reveal" id="reviews-heading">Co říkají naši hosté</h2>
+      <div class="section-divider reveal" style="background:rgba(196,129,58,0.6);"></div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 z 5 hvězd">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="review-text">"Krásné srubové apartmány s výbornou polohou u Lipna. Sauna i venkovní vyhřívaný sud byly skvělé. Ubytování předčilo naše očekávání — vrátíme se."</p>
+          <p class="review-author">Rodina Nováková, Praha · říjen 2024</p>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars" aria-label="5 z 5 hvězd">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="review-text">"Nádherná dřevěná stavba plná detailů a péče. S dětmi jsme tady strávili týden — hřiště, trampolína, výlety na kole. Ideální rodinná dovolená."</p>
+          <p class="review-author">Tomáš K., Brno · srpen 2024</p>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars" aria-label="5 z 5 hvězd">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="review-text">"Zimní pobyt byl dokonalý — ráno na lyžích v Lipně, večer v sauně a ve vyhřívaném sudu pod hvězdami. Klid, teplo a luxusní dřevo všude kolem."</p>
+          <p class="review-author">Markéta &amp; Jan, Plzeň · leden 2025</p>
+        </div>
+      </div>
+      <div class="booking-badge reveal">
+        <span class="booking-badge-score">9.4</span>
+        <div class="booking-badge-text">
+          <strong>Výjimečné</strong><br>
+          Hodnocení na Booking.com
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT FORM ═══ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="contact-inner">
+      <span class="section-label reveal">Rezervace &amp; Kontakt</span>
+      <h2 class="contact-title reveal" id="contact-heading">Napište nám</h2>
+      <p class="contact-sub reveal">Minimální délka pobytu 2 noci · Check-in 15:00 · Check-out 10:00</p>
+
+      <!--
+        Pro ostrý provoz nahraďte action="https://formspree.io/f/VASE_ID"
+        po registraci zdarma na formspree.io (pošle formulář na váš e-mail).
+      -->
+      <form
+        class="contact-form reveal"
+        action="mailto:srubvytonka@seznam.cz"
+        method="GET"
+        enctype="text/plain"
+        aria-label="Kontaktní formulář"
+      >
+        <div class="form-row">
+          <div class="form-field">
+            <label for="jmeno">Jméno a příjmení</label>
+            <input
+              type="text"
+              id="jmeno"
+              name="jmeno"
+              placeholder="Jan Novák"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-field">
+            <label for="email">E-mailová adresa</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="jan@example.cz"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="prijezd">Datum příjezdu</label>
+            <input
+              type="date"
+              id="prijezd"
+              name="datum_prijezdu"
+              required
+            />
+          </div>
+          <div class="form-field">
+            <label for="odjezd">Datum odjezdu</label>
+            <input
+              type="date"
+              id="odjezd"
+              name="datum_odjezdu"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="zprava">Zpráva</label>
+          <textarea
+            id="zprava"
+            name="zprava"
+            placeholder="Napište nám svůj dotaz, počet hostů, preference apartmánu…"
+            required
+          ></textarea>
+        </div>
+        <div class="form-submit">
+          <p class="form-notice">
+            50 % záloha při potvrzení rezervace<br>
+            Zbývající část před příjezdem
+          </p>
+          <button type="submit" class="form-submit-btn">Odeslat poptávku</button>
+        </div>
+      </form>
+
+      <div class="contact-details reveal">
+        <div class="contact-detail-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2h3l1.5 4-2 1.5a10 10 0 004 4l1.5-2L15 11v3a1 1 0 01-1 1C6.3 15 1 9.7 1 3a1 1 0 011-1z"/></svg>
+          <a href="tel:+420777999606">+420 777 999 606</a>
+        </div>
+        <div class="contact-detail-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1"/><path d="M1 4l7 5 7-5"/></svg>
+          <a href="mailto:srubvytonka@seznam.cz">srubvytonka@seznam.cz</a>
+        </div>
+        <div class="contact-detail-item">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>
+          <span>Přední Výtoň 194, 382 73</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer" aria-label="Zápatí stránky">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M18 4L4 16h4v14h8v-8h4v8h8V16h4L18 4z" stroke="#C4813A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <div class="nav-logo-text footer-logo-wrap">
+              <span class="brand-name">Srub Výtoňka</span>
+              <span class="brand-sub">Lipno · Šumava</span>
+            </div>
+          </div>
+          <p class="footer-tagline">"Dřevo, voda, ticho."</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer-social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Navigace</p>
+          <ul class="footer-links">
+            <li><a href="#apartments">Ubytování</a></li>
+            <li><a href="#amenities">Vybavení &amp; Wellness</a></li>
+            <li><a href="#location">Poloha</a></li>
+            <li><a href="#testimonials">Recenze</a></li>
+            <li><a href="#contact">Kontakt &amp; Rezervace</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Kontakt</p>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>
+              <span>Přední Výtoň 194<br>382 73 Přední Výtoň</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2h3l1.5 4-2 1.5a10 10 0 004 4l1.5-2L15 11v3a1 1 0 01-1 1C6.3 15 1 9.7 1 3a1 1 0 011-1z"/></svg>
+              <a href="tel:+420777999606">+420 777 999 606</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1"/><path d="M1 4l7 5 7-5"/></svg>
+              <a href="mailto:srubvytonka@seznam.cz">srubvytonka@seznam.cz</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>
+              <span>Check-in 15:00 · Check-out 10:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Srub Výtoňka · Přední Výtoň · Všechna práva vyhrazena</p>
+        <div class="footer-bottom-links">
+          <a href="#">Ochrana osobních údajů</a>
+          <a href="#">Ubytovací řád</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Announcement bar dismiss
+    const bar = document.getElementById('announcement-bar');
+    const dismissBtn = document.getElementById('dismiss-bar');
+    dismissBtn && dismissBtn.addEventListener('click', () => {
+      bar.style.display = 'none';
+    });
+
+    // ── Navbar scroll behaviour
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hero-dot');
+    let current  = 0;
+    let slideTimer;
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      slides[current].classList.add('prev');
+      dots[current].classList.remove('active');
+      setTimeout(() => slides[(current === n ? (n+1) % slides.length : current)].classList.remove('prev'), 1400);
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((current + 1) % slides.length);
+    }
+
+    function startTimer() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, 7000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.dataset.index, 10);
+        if (idx !== current) { goToSlide(idx); startTimer(); }
+      });
+    });
+
+    startTimer();
+
+    // ── Mobile menu
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ── Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Date inputs: departure must be after arrival
+    const prijezdInput = document.getElementById('prijezd');
+    const odjezdInput  = document.getElementById('odjezd');
+    prijezdInput && prijezdInput.addEventListener('change', () => {
+      if (odjezdInput.value && odjezdInput.value <= prijezdInput.value) {
+        odjezdInput.value = '';
+      }
+      odjezdInput.min = prijezdInput.value;
+    });
+  </script>
+
+</body>
+</html>
